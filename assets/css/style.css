@@ -1,0 +1,165 @@
+:root {
+    --base-color: #FFFFFF;
+    --highlight-color-primary: #BC80DB;
+    --highlight-color-alternate: #0090FF;
+
+    --divider-color: #EBEBEB;
+
+    --button-text-color: #686262;
+
+    --menubar-color: #F2F2F2;
+    --menubar-color-hover: #DFDFDF;
+}
+
+body, html {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    user-select: none;
+}
+
+button {
+    margin: 0px auto 0px auto;
+    width: 100%;
+    height: 50%;
+    border: 2px solid var(--highlight-color-primary);
+    border-radius: 40px;
+    background-color: var(--base-color);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: var(--button-text-color);
+    font-size: 30px;
+}
+
+/* MENU BAR */
+.menubar {
+    -webkit-app-region: drag;
+}
+
+.menubar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--menubar-color); 
+    
+}
+  
+.menubar-left{
+    float: left;
+}
+
+.menubar-right{
+    float: right;
+}
+
+.menubar-item {
+    -webkit-app-region: no-drag;
+}
+
+.menubar-button {
+    padding: 0px;
+    border-radius: 0px;
+    width: auto;
+    height: auto;
+    border: none;
+    background-color: var(--menubar-color);
+    color: #7D7E7E;
+    
+}
+
+.menubar-button:focus {
+    outline: none;
+}
+
+.menubar-button:hover {
+    background-color: var(--menubar-color-hover);
+    color: #0F0F0F;
+    
+}
+
+.close-button:hover {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 19px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    padding: 6px 13px 6px 13px;
+    margin-bottom: 2px;    
+}
+
+.logo-sm {
+    background-size: 82.1px 20px;
+    padding: 3px 41px;
+    background-image: url('../images/logos/logo-small.png');
+    height: 15px;
+    margin: 9px 0px 6px 7px;
+    
+}
+/* MENU BAR END */
+
+
+
+.main-screen {
+    display: grid;
+    background-color: #FF0000;
+}
+
+.logo-grid-item {
+    grid-column: 1 / 7;
+    background-color: #BC80DB;
+    height: 100%;
+    
+}
+
+.buttons-container {
+    grid-column: 7 / 9;
+    
+}
+
+.buttons-container-inner {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin: auto;
+    height: 226px; /*21% 70% */
+    width: 100%;
+    background-color: rgb(128, 219, 151);
+}
+
+.version-grid-item {
+    grid-column: 9 / 12;
+    background-color: yellow;
+}
+
+
+.divider-vertical {
+    background-color: var(--divider-color);
+    margin: 0px 45px;
+    height: 80%;
+    width: 4px;
+    border-radius: 10px;
+}
+
+
+.version {
+    margin: 0px auto 0px auto;
+}
+
+.flex-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}

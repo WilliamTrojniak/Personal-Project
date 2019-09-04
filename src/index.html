@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    
+
+
+    
+
+</head>
+<body>
+<div class = "menubar" id="menubar">
+    <ul class="menubar-menu">
+        <!-- <img class="logo-sm" src="../assets/images/logos/logo-small.png" > -->
+        <li class="menubar-item menubar-left"><div class = "logo-sm"></div></li>
+        <li class="menubar-item menubar-right"><button class="menubar-button close-button" id="close-button"><i class = "material-icons">close</i></button></li>
+        <li class="menubar-item menubar-right"><button class="menubar-button" id="maximize-button"><i class = "material-icons">crop_square</i></button></li>
+        <li class="menubar-item menubar-right"><button class="menubar-button" id="minimize-button"><i class = "material-icons" style="padding-top: 0px; padding-bottom: 8px;">minimize</i></button></li>
+    </ul>
+</div>
+
+<div class="main-screen" id="main-content">
+    <div class="logo-grid-item"></div>
+    <div class="buttons-container flex-container">
+        <button class="main-button">Schedule</button>
+        <button>Apps</button>
+        <button>Exit</button>
+    </div>
+    <div class="version-grid-item"></div>
+
+    <!-- <img src="../assets/images/logos/logo-small.png" style="width: 42%">
+    <div class="divider-vertical"></div>
+    <div class="grid-container">
+        <div class="grid-item"><button>Schedule</button></div>
+        <div class="grid-item"><button>Apps</button></div>
+        <div class="grid-item"><button>Exit</button></div>
+    </div>
+    <p class="version">v.0.0.1</p> -->
+</div>
+
+<script>
+    require('./index.js');
+    require('./menu.js');
+</script>
+</body>
+</html>
