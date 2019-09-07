@@ -3,7 +3,7 @@ const electron = require('electron');
 const main_content = document.getElementById("main-content");
 const menubar = document.getElementById("menubar");
 const menubar_height = window.getComputedStyle(menubar).getPropertyValue('height');
-const menubar_height_int = parseInt(menubar_height.replace("px","")) - 3;
+const menubar_height_int = parseInt(menubar_height.replace("px",""));
 console.log(menubar_height_int);
 
 function resizeWindow(){
