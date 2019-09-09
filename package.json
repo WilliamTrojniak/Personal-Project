@@ -9,6 +9,15 @@
   "author": "William Trojniak",
   "license": "ISC",
   "dependencies": {
-    "electron": "^6.0.6"
-  }
+    "electron": "^6.0.8"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliamTrojniak/Personal-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WilliamTrojniak/Personal-Project/issues"
+  },
+  "homepage": "https://github.com/WilliamTrojniak/Personal-Project#readme"
 }
