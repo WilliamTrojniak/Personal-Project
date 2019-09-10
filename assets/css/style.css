@@ -122,10 +122,11 @@ button:focus {
 
 .logo-container-inner {
     height: 30%; /*21% 70% */
-    width: 80%;
+    width: 70%;
     background-image: url('../images/logos/logo-small.png');
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position: 50%;
 }
 
 .buttons-container {
@@ -135,9 +136,12 @@ button:focus {
 }
 
 .buttons-container-inner {
-    height: 226px; /*21% 70% */
+    min-height: 200px;
+    max-height: 226px;
+    height: 30%;
     width: 100%;
     background-color: white;
+    max-height: 226px;
 }
 
 .version-grid-item {
