@@ -1,10 +1,17 @@
 const electron = require('electron');
+const remote = electron.remote;
 
 const main_content = document.getElementById("main-content");
 const menubar = document.getElementById("menubar");
 const menubar_height = window.getComputedStyle(menubar).getPropertyValue('height');
 const menubar_height_int = parseInt(menubar_height.replace("px",""));
-console.log(menubar_height_int);
+
+const main_close_button = document.getElementById("main-close-button");
+main_close_button.addEventListener('click', () => {
+    let window = remote.getCurrentWindow(); //TODO Fully quit program on MacOSx
+    window.close();
+});
+
 
 function resizeWindow(){
     let window_height = window.innerHeight;
