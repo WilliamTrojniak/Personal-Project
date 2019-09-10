@@ -170,6 +170,7 @@ button:focus {
 .main-button:hover{
     background-color: var(--highlight-color-primary);
     color: #fff;
+    cursor: pointer;
 }
 
 .center-align-inner{
