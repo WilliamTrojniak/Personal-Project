@@ -110,6 +110,7 @@ button:focus {
 .main-screen {
     display: grid;
     background-color:white;
+    height: 100%;
 }
 
 .logo-grid-item {

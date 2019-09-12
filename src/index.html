@@ -29,26 +29,32 @@
     </ul>
 </div>
 
-<div class="main-screen" id="main-content">
-    <div class="logo-grid-item center-align">
-        <div class="logo-container-inner center-align-inner"></div>
-    </div>
-    <div class="buttons-container center-align">
-        <div class="buttons-container-inner center-align-inner">
-            <button class="main-button">Schedule</button>
-            <button class="main-button">Apps</button>
-            <button class="main-button" id="main-close-button">Exit</button>
+<div id="main-content">
+    <div class="main-screen" id="splash-screen-content">
+        <div class="logo-grid-item center-align">
+            <div class="logo-container-inner center-align-inner"></div>
         </div>
-        
+        <div class="buttons-container center-align">
+            <div class="buttons-container-inner center-align-inner">
+                <button class="main-button">Schedule</button>
+                <button class="main-button">Apps</button>
+                <button class="main-button" id="main-close-button">Exit</button>
+            </div>
+            
+        </div>
+        <div class="version-grid-item center-align">
+            <div class="center-align-inner"><span class="version">v 0.0.1</span></div>
+        </div>
     </div>
-    <div class="version-grid-item center-align">
-        <div class="center-align-inner"><span class="version">v 0.0.1</span></div>
+    <div class="main-screen" id="shcedule-screen-content">
+        
     </div>
 </div>
 
 <script>
-    require('./index.js');
     require('./menu.js');
+    require('./index.js');
+    require('./viewManager.js');
 </script>
 </body>
 </html>
