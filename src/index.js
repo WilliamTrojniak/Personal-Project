@@ -15,7 +15,6 @@ main_close_button.addEventListener('click', () => {
 
 function resizeWindow(){
     let window_height = window.innerHeight;
-
     main_content.style.height = window_height - menubar_height_int + "px";
 }
 
