@@ -1,16 +1,16 @@
 const psList = require('ps-list');
+const find = require('find-process');
 
-let current_filtered_processes;
+const programs_search_bar = document.getElementById('programs-search-bar');
 
+let current_filtered_processes = [];
 
 function getUniqueProcesses(){
     let process_list = getCurrentProcesses();
     process_list.then((defs) => {
         let filtered_processes = filterProcesses(defs);
-        current_filtered_processes = filtered_processes;
-        console.log(current_filtered_processes);
+        current_filtered_processes = Array.from(filtered_processes);
     });
-    
 }
 
 async function getCurrentProcesses() {
@@ -26,28 +26,44 @@ function filterProcesses(processes){
     return(unique_processes);
 }
 
-getUniqueProcesses();
+function findMatchingPrograms(keyword){
+    getUniqueProcesses();
+    keyword = keyword.toLowerCase();
+    console.clear();
+    for(let i = 0; i < current_filtered_processes.length; i++){
+       
+
+        if(current_filtered_processes[i].toLowerCase().indexOf(keyword) !== -1){
+            
+            console.log(current_filtered_processes[i]);
+            
+        }
+    }
+    
+}
+
+
+
+programs_search_bar.addEventListener('input', () =>{
+    let input = programs_search_bar.value;
+    findMatchingPrograms(input);
+});
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-// const find = require('find-process');
-// find('name', "minecraft.exe")
-//   .then(function (list) {
+// find('name', input).then(function (list) {
 //     console.log(list);
 //   }, function (err) {
 //     console.log(err.stack || err);
 //   })
 
-// console.log(process.pid);
+
+
+
+
+
+
+
+

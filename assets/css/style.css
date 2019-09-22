@@ -165,7 +165,7 @@ button:focus {
     background-color: rgba(0, 0, 0, 0);
     border: 3px solid var(--highlight-color-primary);
     font-family: 'Lato', sans-serif;
-    transition: color 0.4s, background-color 0.3s;
+    transition: color 0.2s, background-color 0.1s;
 }
 
 .main-button:hover{
