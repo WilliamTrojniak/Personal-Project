@@ -1,33 +1,53 @@
-// var tasklist = require('tasklist');
+const psList = require('ps-list');
 
-// tasklist(function(err, tasks) {
-//   if (err) throw err; // TODO: proper error handling
-//   var appList = tasks.filter(function(task) {
-//     return task.imageName.indexOf('ll_') === 0;
-//   }).map(function(task) {
-//     return {
-//       id   : task.pid, // XXX: is that the same as your `id`?
-//       name : task.imageName,
-//     };
-//   });
-// });
+let current_filtered_processes;
 
-const exec = require('child_process').exec;
 
-const isRunning = (query, cb) => {
-    let platform = process.platform;
-    let cmd = '';
-    switch (platform) {
-        case 'win32' : cmd = `tasklist`; break;
-        case 'darwin' : cmd = `ps -ax | grep ${query}`; break;
-        case 'linux' : cmd = `ps -A`; break;
-        default: break;
-    }
-    exec(cmd, (err, stdout, stderr) => {
-        cb(stdout.toLowerCase().indexOf(query.toLowerCase()) > -1);
+function getUniqueProcesses(){
+    let process_list = getCurrentProcesses();
+    process_list.then((defs) => {
+        let filtered_processes = filterProcesses(defs);
+        current_filtered_processes = filtered_processes;
+        console.log(current_filtered_processes);
     });
+    
 }
 
-isRunning('asda.exe', (status) => {
-    console.log(status); // true|false
-})
+async function getCurrentProcesses() {
+	return(await psList());
+	//=> [{pid: 3213, name: 'node', cmd: 'node test.js', ppid: 1, uid: 501, cpu: 0.1, memory: 1.5}, …]
+}
+
+function filterProcesses(processes){
+    let unique_processes = new Set();
+    for(let i = 0; i < processes.length; i++){
+        unique_processes.add(processes[i].name);
+    }
+    return(unique_processes);
+}
+
+getUniqueProcesses();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const find = require('find-process');
+// find('name', "minecraft.exe")
+//   .then(function (list) {
+//     console.log(list);
+//   }, function (err) {
+//     console.log(err.stack || err);
+//   })
+
+// console.log(process.pid);

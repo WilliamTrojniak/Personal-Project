@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^6.0.8",
+    "find-process": "^1.4.2",
+    "ps-list": "^6.3.0",
+    "ps-node": "^0.1.6",
     "tasklist": "^4.0.0"
   },
   "devDependencies": {},
