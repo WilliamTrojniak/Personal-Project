@@ -9,7 +9,8 @@
   "author": "William Trojniak",
   "license": "ISC",
   "dependencies": {
-    "electron": "^6.0.8"
+    "electron": "^6.0.8",
+    "tasklist": "^4.0.0"
   },
   "devDependencies": {},
   "repository": {
