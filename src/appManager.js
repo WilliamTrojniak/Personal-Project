@@ -2,6 +2,7 @@ const { desktopCapturer } = require('electron');
 
 const programs_search_bar = document.getElementById('programs-search-bar');
 const unadded_programs_table = document.getElementById('unadded-programs');
+const added_programs_table = document.getElementById('added-programs');
 
 const translations = ["Google Chrome", "Visual Studio Code", "Internet Explorer", "Spotify", "Microsoft Excel", "Microsoft Word", "Discord"];
 let tags = ["Twitch", "Fortnite", "Twitter", "Youtube"];
@@ -9,6 +10,8 @@ let tags = ["Twitch", "Fortnite", "Twitter", "Youtube"];
 let openWindows;
 let filteredOpenWindows;
 let windowDisplayNames;
+
+let addedPrograms = new Set();
 
 
 function translateAndApplyTagsToOpenWindows(windows){
@@ -48,7 +51,7 @@ function getCurrentlyOpenWindows(){
         openWindows = defs;
         translateAndApplyTagsToOpenWindows(openWindows);
         getWindowsDisplayNames(openWindows);
-        console.log(openWindows);
+        updateDisplay();
     });
 }
 
@@ -61,37 +64,108 @@ function searchWindows(keyword){
     }
 }
 
+function assignButtonAddProgramFunction(){
+    let addbuttons = document.getElementsByClassName("unaddedprogramaddbutton");
+    for(let i = 0; i < addbuttons.length; i++){
+        addbuttons[i].addEventListener('click', () =>{
+            addProgram(addbuttons[i].value);
+        })
+    }
+}
 
 
-function displayUnaddedFilteredWindows(){
-    //TODO Filter out already added windows
-    
-
+function createHTMLAddUnaddedProgramButton(){
     unadded_programs_table.innerHTML = "";
-    //Create new table row elements for every matching process
-
     for(let i = 0; i < filteredOpenWindows.length; i++){
-        let htmlString = (`<tr><td> ${filteredOpenWindows[i]} </td> <td>${i+1}</td></tr>`)
+        let htmlString = (`<tr><td> ${filteredOpenWindows[i]} </td> <td><button class="unaddedprogramaddbutton" id="unaddedprogrambutton${i}" value="${filteredOpenWindows[i]}"></button></td></tr>`)
         unadded_programs_table.innerHTML += htmlString;
     }
+    assignButtonAddProgramFunction();
+}
+
+function removeAddedPrograms(){
+    let addedProgramsArr = Array.from(addedPrograms);
+    for(let i = addedProgramsArr.length-1; i >=0 ; i--){
+        for(let t = windowDisplayNames.length-1; t >= 0; t--){
+            if(addedProgramsArr[i] === windowDisplayNames[t]){
+                windowDisplayNames.splice(t, 1);
+                console.clear();
+            }
+        }
+    }
+}
+function displayUnaddedFilteredWindows(){
+    createHTMLAddUnaddedProgramButton();
+}
+
+function removeProgram(val){
+    let addedProgramsArr = Array.from(addedPrograms);
+    addedPrograms.delete(val);
+
+    displayUnaddedFilteredWindows();
+    getCurrentlyOpenWindows();
+    updateDisplay();
+    
 
 }
 
+function assignButtonRemoveProgramFunction(){
+    let removeButtons = document.getElementsByClassName("addedprogramaddbutton");
+    for(let i = 0; i < removeButtons.length; i++){
+        removeButtons[i].addEventListener('click', () =>{
+            removeProgram(removeButtons[i].value);
+        })
+    }
+}
+
+
+function createHTMLRemoveAddedProgramButton(){
+    added_programs_table.innerHTML = "";
+    let addedProgramsArr = Array.from(addedPrograms);
+    for(let i = 0; i < addedProgramsArr.length; i++){
+        let htmlString = (`<tr><td> ${addedProgramsArr[i]} </td> <td><button class="addedprogramaddbutton" id="addedprogrambutton${i}" value="${addedProgramsArr[i]}"></button></td></tr>`)
+        added_programs_table.innerHTML += htmlString;
+    }
+    assignButtonRemoveProgramFunction();
+}
+
+
+function displayAddedWindows(){
+    createHTMLRemoveAddedProgramButton();
+}
 
 //Refresh Windows on Search bar Focus
 programs_search_bar.addEventListener('focusin', ()=> {
     getCurrentlyOpenWindows();
-    let input = programs_search_bar.value;
-    searchWindows(input);
-    displayUnaddedFilteredWindows();
+    updateDisplay();
     
 });
 
 programs_search_bar.addEventListener('input', () => {
-    let input = programs_search_bar.value;
-    searchWindows(input);
-    displayUnaddedFilteredWindows();
+    updateDisplay();
 });
 
 //Get Open Windows Once before focus in
 getCurrentlyOpenWindows();
+
+//Adding And Removing Programs
+function addProgram(val){
+    addedPrograms.add(val);
+    filteredOpenWindows.splice(filteredOpenWindows.indexOf(val),1);
+    updateDisplay();
+}
+
+function updateDisplay(){
+    let input = programs_search_bar.value;
+    removeAddedPrograms();
+    searchWindows(input);
+    displayUnaddedFilteredWindows();
+    displayAddedWindows();
+
+    console.clear();
+    console.log(`Open Windows, Filtered Windows, Window Display Names, Added Programs`);
+    console.log(openWindows);
+    console.log(filteredOpenWindows);
+    console.log(windowDisplayNames);
+    console.log(addedPrograms);
+}
