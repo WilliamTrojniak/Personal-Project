@@ -4,7 +4,7 @@ const programs_search_bar = document.getElementById('programs-search-bar');
 const unadded_programs_table = document.getElementById('unadded-programs');
 const added_programs_table = document.getElementById('added-programs');
 
-const translations = ["Google Chrome", "Visual Studio Code", "Internet Explorer", "Spotify", "Microsoft Excel", "Microsoft Word", "Discord"];
+const translations = ["Google Chrome", "Visual Studio Code", "Internet Explorer", "Spotify", "Microsoft Excel", "Microsoft Word", "Discord", "Paint.net", "Skype", "Dropbox"];
 let tags = ["Twitch", "Fortnite", "Twitter", "Youtube"];
 
 let openWindows;
