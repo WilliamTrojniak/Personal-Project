@@ -50,23 +50,38 @@
         
     </div>
     <div class="main-screen" id="apps-screen-content" style="display: none;">
-        <form><input class="search-bar" id="programs-search-bar" type="text" placeholder="Search programs.."></form>
-        <table class="programs-table" id="unadded-programs">
-            <tr>
-                <td>Hello</td>
-            </tr>
-            
 
-        </table>
-        <table class="programs-table" id="added-programs">
-            <tr>
-                <td>Hello</td>
-            </tr>
-            
-
-        </table>
-        
-        
+        <div style="grid-column: 1/13; grid-row: 1;"><h1>Application Settings</h1></div>
+        <div style="grid-column: 2/7;">
+            <input class="search-bar" id="programs-search-bar" type="text" placeholder="Search programs..">
+        </div>
+        <div style="grid-column: 2/7;">
+            <div class="table-div">
+                <table class="programs-table" id="unadded-programs"></table>
+            </div>
+        </div>
+        <div style="grid-column: 7/12; grid-row: 2;">
+            <input class="search-bar" id="tags-search-bar" type="text" placeholder="Add keywords..">
+        </div>
+        <div style="grid-column: 7/12; grid-row: 3/6;" id="tags-table-div">
+            <div class="table-div">
+                <table class="programs-table" id="tags-table"></table>
+            </div>
+        </div>
+        <div style="grid-column: 2/7;">
+            <h2>Blacklisted Programs</h2>
+        </div>
+        <div style="grid-column: 2/7;">
+            <div class="table-div">
+                <table class="programs-table" id="added-programs"></table>
+            </div>
+        </div>
+        <div style="grid-column: 8/10; grid-row: 6; text-align: right;" class="app-save-button-div">
+            <button class="main-button" id="app-settings-apply">Apply</button>
+        </div>
+        <div style="grid-column: 10/12; grid-row: 6; text-align: right;" class="app-save-button-div">
+            <button class="main-button" id="app-settings-save">Save</button>
+        </div>
     </div>
 </div>
 
