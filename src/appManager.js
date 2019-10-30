@@ -19,7 +19,7 @@ const apply_button = document.getElementById('app-settings-apply');
 const save_button = document.getElementById('app-settings-save');
 const SETTINGS_FILE = "applicationsettings.json";
 const FILEPATH = path.join((electron.app || electron.remote.app).getPath('userData'), SETTINGS_FILE);
-console.log(FILEPATH);
+
 
 
 const schedule_button = document.getElementById("schedule-button");
@@ -194,12 +194,12 @@ function updateDisplay(){
     displayUnaddedFilteredWindows();
     displayAddedWindows();
 
-    console.clear();
-    console.log(`Open Windows, Filtered Windows, Window Display Names, Added Programs`);
-    console.log(openWindows);
-    console.log(filteredOpenWindows);
-    console.log(windowDisplayNames);
-    console.log(addedPrograms);
+    // console.clear();
+    // console.log(`Open Windows, Filtered Windows, Window Display Names, Added Programs`);
+    // console.log(openWindows);
+    // console.log(filteredOpenWindows);
+    // console.log(windowDisplayNames);
+    // console.log(addedPrograms);
 }
 
 
@@ -250,7 +250,6 @@ save_button.addEventListener('click', () => {
 apply_button.addEventListener('click', applySettings);
 
 function applySettings(){
-    console.log("settings saved");
     let output = {
         "Tags": [],
         "AddedPrograms": []
@@ -287,6 +286,6 @@ function loadSettings(){
         }
 
     }catch(error){
-        console.log("No previous data");
+        console.error("No previous data");
     }
 }
