@@ -239,7 +239,7 @@ function removeTag(val){
     updateTagsDisplay();
 }
 
-// Settings saving
+// Settings saving and loading
 save_button.addEventListener('click', () => {
 
     applySettings();
