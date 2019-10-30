@@ -46,12 +46,127 @@
             <div class="center-align-inner"><span class="version">v 0.1.0</span></div>
         </div>
     </div>
-    <div class="main-screen" id="schedule-screen-content" style="display: none; background-color: rebeccapurple">
-        
+    <div class="main-screen" id="schedule-screen-content" style="display: none;">
+        <div style="grid-column: 1/8; grid-row: 1;"><h1>Schedule Settings</h1></div>
+        <div style="grid-column: 1; grid-row: 2;" class="day-container">
+            <h3>Sun.</h3>
+            <form class = "sunday-form">
+                <h4>From:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>To:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>Enabled:</h4>
+                <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+        </div>
+        <div style="grid-column: 2; grid-row: 2;" class="day-container">
+            <h3>Mon.</h3>
+            <form class = "monday-form">
+                <h4>From:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>To:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>Enabled:</h4>
+                <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+        </div>
+        <div style="grid-column: 3; grid-row: 2;" class="day-container">
+            <h3>Tue.</h3>
+            <form class = "tuesday-form">
+                <h4>From:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>To:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>Enabled:</h4>
+                <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+        </div>
+        <div style="grid-column: 4; grid-row: 2;" class="day-container">
+            <h3>Wed.</h3>
+            <form class = "wednesday-form">
+                <h4>From:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>To:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>Enabled:</h4>
+                <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+        </div>
+        <div style="grid-column: 5; grid-row: 2;" class="day-container">
+            <h3>Thu.</h3>
+            <form class = "thursday-form">
+                <h4>From:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>To:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>Enabled:</h4>
+                <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+        </div>
+        <div style="grid-column: 6; grid-row: 2;" class="day-container">
+            <h3>Fri.</h3>
+            <form class = "friday-form">
+            <h4>From:</h4>
+            <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+            <h4>To:</h4>
+            <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+            <h4>Enabled:</h4>
+            <label class="checkbox-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            </form>
+        </div>
+        <div style="grid-column: 7; grid-row: 2;" class="day-container">
+            <h3>Sat.</h3>
+            <form class = "saturday-form">
+                <h4>From:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>To:</h4>
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4>Enabled:</h4>
+                <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+        </div>
+        <div style="grid-column: 1/6; grid-row: 3; border:none;" class="day-container">
+            <h3 style="text-align: left;">Schedule breaks every..</h3>
+            <form class = "break-form">
+                <select class="hour-select" size="1"></select> : <select class="minute-select" size="1"></select>
+                <h4 style="display: inline-block;">Enabled:</h4>
+                <label class="checkbox-container" style="display: inline-block;">
+                    <input type="checkbox">
+                    <span class="checkmark" style="left: 0; margin: 0px; margin-top: -18px;"></span>
+                </label>
+            </form>
+        </div>
+        <div style="grid-column: 6; grid-row: 3 !important; text-align: right;" class="app-save-button-div">
+            <button class="main-button" id="">Apply</button>
+        </div>
+        <div style="grid-column: 7; grid-row: 3!important; text-align: right; bottom: 0px !important;" class="app-save-button-div">
+            <button class="main-button" id="">Save</button>
+        </div>
     </div>
     <div class="main-screen" id="apps-screen-content" style="display: none;">
 
-        <div style="grid-column: 1/13; grid-row: 1;"><h1>Application Settings</h1></div>
+        <div style="grid-column: 1/13; grid-row: 1; padding-top: 0px"><h1>Application Settings</h1></div>
         <div style="grid-column: 2/7;">
             <input class="search-bar" id="programs-search-bar" type="text" placeholder="Search programs..">
         </div>
@@ -90,6 +205,7 @@
     require('./index.js');
     require('./viewManager.js');
     require('./appManager.js');
+    require('./scheduleManager.js');
 </script>
 </body>
 </html>

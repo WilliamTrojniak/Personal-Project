@@ -25,11 +25,28 @@ button:focus, input:focus {
     outline: none;
 }
 
-h1 , h2{
+h1 , h2, h3, h4{
+    font-family: 'Lato', sans-serif;
     text-align: center;
     margin: 0;
+    padding: 0px;
+    
 }
 
+h1 {
+    padding-top: 30px;
+    margin: auto 0;
+}
+
+h2 , h4{
+    text-align: left;
+}
+
+h3 {
+    font-size: 22px;
+    text-decoration: underline;
+    text-decoration-color: var(--highlight-color-primary);
+}
 
 /* MENU BAR */
 .menubar {
@@ -192,11 +209,11 @@ h1 , h2{
 
 #apps-screen-content {
     grid-template-columns: 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33%;
-    grid-template-rows: 10% 75px 29% 55px 29% 75px;
+    grid-template-rows: 80px 52px 29% 55px 29% 80px;
 }
 
-#apps-screen-content > div {
-    padding: 20px;
+#apps-screen-content > div{
+    padding: 10px;
 }
 
 @media screen and (min-height: 420px){
@@ -208,7 +225,7 @@ h1 , h2{
     }
 }
 
-@media screen and (min-height: 680px){
+@media screen and (min-height: 730px){
     .app-save-button-div {
         grid-row: 6 !important;
     }
@@ -288,13 +305,132 @@ h1 , h2{
 }
 
 .app-save-button-div {
-    padding: 0px;
+    padding: 5px;
+    margin: auto 0;
 }
 
-#app-settings-save, #app-settings-apply{
+.app-save-button-div > button{
     font-size: 20px;
     min-height: 50px;
     width: 100%;
     max-width: 150px;
     min-width: 85px;
 }
+
+#schedule-screen-content {
+    grid-template-columns:  14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+    grid-template-rows: 90px auto 105px;
+}
+
+#schedule-screen-content > div:first-child {
+    padding-bottom: 10px;
+}
+
+.day-container {
+    padding: 10px;
+    text-align: left;
+    max-height: 100%;
+    border-right: 1px solid var(--divider-color);
+}
+
+
+.day-container:last-child{
+    border: none;
+}
+
+.day-container > form {
+    padding: 10px 0px;
+}
+
+.day-container h4:last-of-type, .day-container .checkbox-container {
+    text-align: center !important;
+}
+
+.day-container > form > select {
+    padding: 4px 2.5px;
+    margin-bottom: 10px;
+    width: 43.75%;
+    min-width: 43px;
+    max-width: 76px;
+}
+
+
+.day-container > form > select:focus{
+    
+    outline-width: 1px;
+    outline-color: var(--highlight-color-alternate);
+ }
+
+ .hour-select {
+     text-align: right;
+ }
+
+ .checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-top: 4px;
+    margin-left: -13px;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .checkbox-container input:checked ~ .checkmark {
+    background-color:var(--highlight-color-alternate);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
