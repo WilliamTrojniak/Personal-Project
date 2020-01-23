@@ -35,10 +35,9 @@ ipcRenderer.on("blacklistedwindow", (event, arg) => {
 ipcRenderer.on("blacklistedtag", (event, arg) => {
     const blacklistedtagnotification = {
         title: 'Break Free Alert',
-        body: `Blacklisted tag found: "${arg}"`,
+        body: `Blacklisted keyword found: "${arg}"`,
         icon: path.join(__dirname, '../assets/images/logos/logo-icon.png')
     }
-
 
     const myNotification = new window.Notification(blacklistedtagnotification.title, blacklistedtagnotification);
 });

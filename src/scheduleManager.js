@@ -110,7 +110,9 @@ function loadSettings(){
         
 
     }catch(error){
-        console.error("No previous data");
+        console.error("No previous data found, creating new save file");
+        applySettings();
+        return;
     }
 
     for(let i = 0; i < day_divs.length; i++){

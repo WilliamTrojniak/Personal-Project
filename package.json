@@ -1,21 +1,27 @@
 {
-  "name": "pp-prototype",
+  "name": "breakfree",
   "version": "0.0.1",
-  "description": "A prototype for my personal project program",
-  "main": "main.js",
+  "license": "MIT",
+  "description": "your app description",
+  "author": "xyz <xyz@gmail.com>",
+  "main": "./main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=build/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . breakfree --overwrite --asar=true --platform=win32 --arch=ia32 --icon=build/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Break Free\"",    
+    "package-linux": "electron-packager . breakfree --overwrite --asar=true --platform=linux --arch=x64 --icon=build/background.png --prune=true --out=release-builds"
   },
-  "author": "William Trojniak",
-  "license": "ISC",
   "dependencies": {
     "electron": "^6.0.8",
+    "electron-packager": "^14.2.0",
     "find-process": "^1.4.2",
     "ps-list": "^6.3.0",
     "ps-node": "^0.1.6",
     "tasklist": "^4.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "electron-builder": "^22.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WilliamTrojniak/Personal-Project.git"

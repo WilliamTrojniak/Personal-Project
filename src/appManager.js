@@ -266,7 +266,7 @@ function applySettings(){
 
     
     fs.writeFile(FILEPATH, JSON.stringify(output), (err) => {
-        if (err) throw err;
+        if (err) console.log(err);
         
     });
 }
@@ -285,6 +285,7 @@ function loadSettings(){
         }
 
     }catch(error){
-        console.error("No previous data");
+        console.error("No previous app data found, creating new file");
+        applySettings();
     }
 }
