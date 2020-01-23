@@ -48,3 +48,7 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+app.setAppUserModelId(process.execPath);
+
+require('./eventhandler');

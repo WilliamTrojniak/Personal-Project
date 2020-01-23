@@ -1,5 +1,5 @@
 const electron = require('electron');
-const { desktopCapturer } = require('electron');
+const { desktopCapturer, ipcRenderer } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
@@ -47,12 +47,15 @@ function main(){
     if(data["Schedule"][key][4]){ // Check if the schedule is active for the current day and are within time restraints
         if(data["Schedule"][key][0]*60 +data["Schedule"][key][1] === hour*60 + min){
             console.log("Entered worktime");
+            ipcRenderer.send("enteredworktime");
         }else if( data["Schedule"][key][2]*60 +data["Schedule"][key][3] === hour*60 + min){
             console.log("Entered worktime");
+            ipcRenderer.send("enteredworktime");
         }else if(data["Schedule"][key][0]*60 +data["Schedule"][key][1] < hour*60 + min && data["Schedule"][key][2]*60 +data["Schedule"][key][3] > hour*60 + min){ //Check if within worktime
             console.log("In worktime");
             if(data["Breaks"][2] &&(hour*60+min)%(data["Breaks"][0]*60+data["Breaks"][1]) === (data["Schedule"][key][0]*60 +data["Schedule"][key][1])%(data["Breaks"][0]*60+data["Breaks"][1])){ //Check if the user should take a break
                 console.log("Breaktime");
+                ipcRenderer.send("enteredbreaktime");
             }
             checkForBlacklistedPrograms = true;
 
@@ -125,6 +128,7 @@ function checkForBlacklistedProgramsFunc() {
         for(let t = 0; t < addedArr.length; t++){
             if(addedArr[t] === openWindows[i].name){
                 console.log("Blacklisted window found");
+                ipcRenderer.send("blacklistedwindowfound", openWindows[i].name);
                 break;
             }
         }
@@ -132,6 +136,7 @@ function checkForBlacklistedProgramsFunc() {
             for(let j = 0; j < tagsArr.length; j++){
                 if(tagsArr[j] === openWindows[i].tags[k]){
                     console.log(`Blacklisted tag found: ${tagsArr[j]}`);
+                    ipcRenderer.send("blacklistedtagfound", tagsArr[j]);
                     break;
                 }
             }

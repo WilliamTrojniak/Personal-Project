@@ -21,7 +21,6 @@ const SETTINGS_FILE = "applicationsettings.json";
 const FILEPATH = path.join((electron.app || electron.remote.app).getPath('userData'), SETTINGS_FILE);
 
 
-
 const schedule_button = document.getElementById("schedule-button");
 const apps_button = document.getElementById("apps-button");
 schedule_button.addEventListener('click', () => {

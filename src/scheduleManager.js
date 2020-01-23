@@ -1,4 +1,5 @@
 const electron = require('electron');
+const {ipcRenderer} = require('electron');
 const path = require('path');
 const fs = require('fs');
 const vs = require('./viewManager');
@@ -22,6 +23,16 @@ const apply_button = document.getElementById('schedule-settings-apply');
 const save_button = document.getElementById('schedule-settings-save');
 const SETTINGS_FILE = "schedulesettings.json";
 const FILEPATH = path.join((electron.app || electron.remote.app).getPath('userData'), SETTINGS_FILE);
+console.log(FILEPATH);
+
+// Saving and Loading Data
+save_button.addEventListener('click', () => {
+    applySettings();
+    vs.changeScene(0);
+
+});
+
+apply_button.addEventListener('click', applySettings);
 
 function loadSelectOptions(){
     for(let i = 0; i < hourOptions.length; i++){
@@ -47,16 +58,7 @@ function main(){
 }
 main();
 
-
-// Saving and Loading Data
-save_button.addEventListener('click', () => {
-    applySettings();
-    vs.changeScene(0);
-
-});
-
-apply_button.addEventListener('click', applySettings);
-
+// Saving and Loading
 function applySettings(){
 
     let output = {
@@ -87,11 +89,14 @@ function applySettings(){
         }
 
     }
-    
-    console.log(output);
 
     fs.writeFile(FILEPATH, JSON.stringify(output), (err) => {
         if (err) throw err;
+        
+    });
+
+    fs.writeFile(FILEPATH, JSON.stringify(output), (err) => {
+        if (err) console.log(err);
         
     });
 }
